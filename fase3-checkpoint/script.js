@@ -6,6 +6,7 @@ const button = dropdown.querySelector("button");
 const list = dropdown.querySelector("ul");
 
 
+
 // Funcionalidad para mostrar u ocultar el desplegable
 let dropdown_visible = false;
 
@@ -25,6 +26,8 @@ function hide_dropdown() {
 function toggle_dropdown() {
     set_dropdown(!dropdown_visible);
 }
+
+
 
 // Implementación de dicha funcionalidad
 dropdown.addEventListener("click", toggle_dropdown);

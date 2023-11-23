@@ -1,0 +1,159 @@
+/* GENERAL */
+    :root {
+        --background: #55a4c1;
+        --container:  #0d1117;
+        --nav:        #24364e;
+        --card-img:   #000000a0;
+        --card-bg:    #24364e;
+        --text:       #ffffffff;
+        --btn:        #575e65;
+        --btn-hover:  #97badd;
+    }
+/* CONTENEDOR */
+    .container {
+        background-color: var(--container);
+
+        margin: auto;
+        text-align: center;
+
+        width: 75vw;
+        min-width: 80vh;
+        padding: 36pt 0 20pt 0;
+        border-radius: 20pt;
+    }
+/* CABECERA */
+    * {
+        margin: 0;
+        padding: 0;
+        color: var(--text);
+        font-family: Lexend;
+    }
+
+    body {
+        background-color: var(--background)
+    }
+    h1 {
+        font-size: 46pt;
+        text-transform: uppercase;
+        word-wrap: break-word;
+        padding-bottom: 10pt;
+
+    }
+    .author {
+        & li {
+            display: inline-block;
+        }
+
+        & ul {
+            list-style: none;
+        }
+        & li:not(:first-child)::before {
+            content: "|";
+            margin: 0 8pt 0 8pt;
+        }
+    }
+
+/* TARJETA */
+    .card {
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+
+        margin: 0 20pt 20pt 20pt;
+        border-radius: 16pt;
+        
+        & img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: fill;
+        }
+    }
+    .card:last-child {
+        margin-bottom: 0;
+    }
+    .card-head {
+        box-shadow: inset 0 0 0 100vmax var(--card-img);
+        position: relative;
+
+        height: 192pt;
+
+        & h2 {
+            position: absolute;
+
+            top: 20pt;
+            left: 20pt;
+            font-size: 32pt;
+        }
+        & a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+        }
+        & ul {
+            position: absolute;
+            list-style: none;
+
+            bottom: 10pt;
+            right: 20pt;
+        }
+        & li {
+            display: inline-block;
+            overflow: hidden;
+            background-size: 100%;
+
+            width: 32pt;
+            height: 32pt;
+            margin-left: 10pt;
+        }
+        & li:nth-child(1) {
+            background-image: url(img/site/telephone.svg);
+        }
+        & li:nth-child(2) {
+            background-image: url(img/site/location.svg);
+        }
+        & li:nth-child(3) {
+            background-image: url(img/site/web.svg);
+        }
+        & a:hover {
+            visibility: visible;
+            background-color: var(--btn-hover);
+        }
+    }
+    .card-body {
+        background-color: var(--card-bg);
+        position: relative;
+
+        padding: 20pt 20pt 20pt 20pt;
+
+        & * {
+            font-size: 12pt;
+        }
+        & ul {
+            list-style: none;
+        }
+        & ul>li:not(:last-child) {
+            margin-bottom: 16pt;
+        }
+        & ul>li>ul {
+            list-style: none;
+            padding-left: 14pt;
+        }
+        & ul>li>ul>li:before {
+            display: inline-block;
+            content: "-";
+            width: 1em;
+        }
+        & ul>li>ul>li:not(:last-child) {
+            margin-bottom: 0;
+        }
+        & h3 {
+            text-transform: uppercase;
+            font-weight: bolder;
+            text-decoration: dashed;
+        }
+        & p {
+            text-align: justify;
+        }
+    }

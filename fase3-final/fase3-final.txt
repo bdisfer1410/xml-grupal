@@ -1,0 +1,23 @@
+CAMBIOS:
+	Contenedor de nodos: paso de ser "section" a "main"
+	NODOS: paso de ser div a "section"
+	ID: Pasaron de estar en el H2 al nodo
+
+
+¿Qué hemos hecho?
+	Cambios/Arreglos estructura
+	Terminar CSS
+
+Resultado
+	Página (enfatizar: cambio de barra de scroll y responsive)
+		Escritorio
+		Móvil
+
+Cambios estructura (Mostrar HTML resumido <...> )
+	Section -> Main
+	ID nodos
+		sitio: h4 -> section.card
+		contenido: "item-x" -> <identificador> (ej: 121973139147461913)
+
+Terminar CSS
+	¡¡¡TODO!!! Mostrar todo.

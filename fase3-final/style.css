@@ -1,0 +1,419 @@
+/* TODO *********************************************************************************/
+    /* GENERAL */
+        :root {
+            --background: #00000000;
+            --container:  #00000060;
+            --nav:        #000000a0;
+            --card-img:   #000000a0;
+            --card-bg:    #000000d0;
+            --text:       #ffffffff;
+            --btn:        #ffffff38;
+            --btn-hover:  #ffffff7f;
+        }
+        .fg-blur {
+            background-image: url(img/site/fg.png);
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        * {
+            color: var(--text);
+            font-family: Lexend;
+
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-image: url(img/site/bg.png);
+            background-size: 100vw 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-image: url(img/site/fg.png);
+        } 
+        ::-webkit-scrollbar-track {
+            background-image: url(img/site/fg.png);
+            box-shadow: inset 0 0 0 100vmax var(--nav);
+        }
+
+    /* CONTENEDOR */
+        .container {
+            box-shadow: inset 0 0 0 100vmax var(--container);
+            margin: auto;
+            text-align: center;
+        }
+
+    /* CABECERA */
+        h1 {
+            text-transform: uppercase;
+            word-wrap: break-word;
+
+        }
+        .author {
+            & li {
+                display: inline-block;
+            }
+            & ul {
+                list-style: none;
+            }
+            & li:not(:first-child)::before {
+                content: "|";
+                margin: 0 8pt 0 8pt;
+            }
+        }
+
+    /* NAVEGACIÓN */
+        .clickable {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: var(--btn);
+            border: solid 1pt var(--text);
+
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        .clickable:hover {
+            background: var(--btn-hover);
+        }
+        nav {
+            box-shadow: inset 0 0 0 100vmax var(--nav);
+
+            display: flex;
+            position: sticky;
+            z-index: 10;
+            top: 0;
+        }
+        #dropdown {
+            flex-grow: 1;
+            
+            & a, button {
+                display: block;
+                width: 100%;
+                text-decoration: none;
+                font-weight: normal;
+            }
+            & a:hover {
+                background-color: var(--btn-hover);
+            }
+            & ul {
+                margin-top: 12pt;
+                list-style: none;
+
+                height: 20vh;
+                overflow:hidden;
+                overflow-y:scroll;
+                overscroll-behavior: contain;
+            }
+            & li {
+                width: 100%;
+            }
+        }
+
+    /* NAVEGACIÓN SEGÚN VISIBILIDAD DEL ÍNDICE */
+        nav.opened {
+            & #dropdown ul {
+                display: block;
+            }
+        }
+        nav.closed {
+            & #dropdown ul {
+                display: none;
+            }
+            & button {
+                height: 100%;
+            }
+        }
+
+    /* TARJETA */
+        .card {
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+            
+            & img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                object-fit: fill;
+            }
+        }
+        .card:last-child {
+            margin-bottom: 0;
+        }
+        .card-head {
+            box-shadow: inset 0 0 0 100vmax var(--card-img);
+            position: relative;
+
+            height: 192pt;
+
+            & h2 {
+                position: absolute;
+            }
+            & a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: transparent;
+            }
+            & ul {
+                position: absolute;
+                list-style: none;
+            }
+            & li {
+                display: inline-block;
+                overflow: hidden;
+                background-size: 100%;
+            }
+            & li:nth-child(1) {
+                background-image: url(img/site/telephone.svg);
+            }
+            & li:nth-child(2) {
+                background-image: url(img/site/location.svg);
+            }
+            & li:nth-child(3) {
+                background-image: url(img/site/web.svg);
+            }
+            & a:hover {
+                visibility: visible;
+                background-color: var(--btn-hover);
+            }
+        }
+        .card-body {
+            box-shadow: inset 0 0 0 100vmax var(--card-bg);
+            position: relative;
+
+            & ul {
+                list-style: none;
+            }
+            & ul>li>ul {
+                list-style: none;
+            }
+            & ul>li>ul>li:before {
+                display: inline-block;
+                content: "-";
+                width: 1em;
+            }
+            & ul>li>ul>li:not(:last-child) {
+                margin-bottom: 0;
+            }
+            & h3 {
+                text-transform: uppercase;
+                font-weight: bolder;
+                text-decoration: dashed;
+            }
+            & p {
+                text-align: justify;
+            }
+        }
+
+
+
+/* HORIZONTAL ***************************************************************************/
+@media screen and (min-width: 1200px) {
+    /* CONTENEDOR */
+        .container {
+            width: 75vw;
+            min-width: 80vh;
+            padding: 36pt 0 20pt 0;
+            margin-top: 40pt;
+            margin-bottom: 40pt;
+            border-radius: 20pt;
+        }
+
+    /* CABECERA */
+        h1 {
+            font-size: 46pt;
+            padding-bottom: 10pt;
+
+        }
+
+    /* NAVEGACIÓN */
+        body, html {
+            scroll-padding-top: 88pt;
+        }
+        .clickable {
+            height: 48pt;
+            width: 192pt;
+            border-radius: 8pt;
+            font-size: 16pt;
+        }
+        nav {
+            margin: 40pt 0 20pt 0;
+            padding: 10pt 20pt 10pt 20pt;
+            gap: 10pt;
+        }
+        #dropdown {
+            & ul {
+                margin-top: 12pt;
+                height: 20vh;
+            }
+            & li {
+                width: 100%;
+            }
+        }
+
+    /* NAVEGACIÓN SEGÚN VISIBILIDAD DEL ÍNDICE */
+    nav.opened {
+        & button::after  {
+            content: "Cerrar índice";
+        }
+    }
+    nav.closed {
+        & button::after  {
+            content: "Índice";
+        }
+    }
+
+    /* TARJETA */
+        .card {
+            margin: 0 20pt 20pt 20pt;
+            border-radius: 16pt;
+        }
+        .card-head {
+            height: 192pt;
+            & h2 {
+                top: 20pt;
+                left: 20pt;
+                font-size: 32pt;
+            }
+            & ul {
+                bottom: 10pt;
+                right: 20pt;
+            }
+            & li {
+                background-size: 100%;
+
+                width: 32pt;
+                height: 32pt;
+                margin-left: 10pt;
+            }
+        }
+        .card-body {
+            padding: 20pt 20pt 20pt 20pt;
+
+            & * {
+                font-size: 12pt;
+            }
+            & ul>li:not(:last-child) {
+                margin-bottom: 16pt;
+            }
+            & ul>li>ul {
+                padding-left: 14pt;
+            }
+            & ul>li>ul>li:not(:last-child) {
+                margin-bottom: 0;
+            }
+        }
+}
+
+
+
+/* VERTICAL *****************************************************************************/
+@media screen and (max-width: 1200px) {
+    /* CONTENEDOR */
+        .container {
+            width: 100%;
+            padding: 36pt 0 72pt 0;
+            margin: 0;
+            border-radius: 0;
+        }
+
+    /* CABECERA */
+        h1 {
+            font-size: 28pt;
+            padding-bottom: 12pt;
+        }
+
+    /* NAVEGACIÓN */
+        body, html {
+            scroll-padding-top: 50pt;
+        }
+        .clickable {
+            height: 20pt;
+            width: 100%;
+            border-radius: 8pt;
+            font-size: 16pt;
+        }
+        nav {
+            margin: 48pt 0 10pt 0;
+            padding: 10pt 10pt 10pt 10pt;
+            gap: 10pt;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #dropdown {
+            & ul {
+                margin-top: 12pt;
+                height: 20vh;
+            }
+            & li {
+                width: 100%;
+            }
+        }
+
+    /* NAVEGACIÓN SEGÚN VISIBILIDAD DEL ÍNDICE */
+        nav.opened {
+            & button::after  {
+                content: "Cerrar menú";
+            }
+            & #dropdown {
+                order:2;
+            }
+            & a {
+                display: block;
+            }
+        }
+        nav.closed {
+            & button::after  {
+                content: "Menú";
+            }
+            & a {
+                display: none;
+            }
+        }
+    /* TARJETA */
+        .card {
+            margin: 0 10pt 10pt 10pt;
+            border-radius: 10pt;
+        }
+        .card-head {
+            height: 96pt;
+
+            & h2 {
+                top: 10pt;
+                left: 10pt;
+                font-size: 24pt;
+            }
+            & ul {
+                bottom: 5pt;
+                right: 10pt;
+            }
+            & li {
+                width: 24pt;
+                height: 24pt;
+                margin-left: 5pt;
+            }
+        }
+        .card-body {
+            padding: 10pt;
+
+            & * {
+                font-size: 10pt;
+            }
+            & ul>li:not(:last-child) {
+                margin-bottom: 10pt;
+            }
+            & ul>li>ul {
+                padding-left: 10pt;
+            }
+        }
+}

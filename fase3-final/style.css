@@ -133,6 +133,14 @@
             }
         }
 
+    /* PIE DE PÁGINA */
+        footer {
+            text-align: center;
+            padding: 40pt;
+            font-size: 8pt;
+            color: var(--btn-hover)
+        }
+
     /* TARJETA */
         .card {
             position: relative;
@@ -223,7 +231,7 @@
         .container {
             width: 75vw;
             min-width: 80vh;
-            padding: 36pt 0 20pt 0;
+            padding-top: 36pt;
             margin-top: 40pt;
             margin-bottom: 40pt;
             border-radius: 20pt;
@@ -322,7 +330,7 @@
     /* CONTENEDOR */
         .container {
             width: 100%;
-            padding: 36pt 0 72pt 0;
+            padding-top: 36pt;
             margin: 0;
             border-radius: 0;
         }

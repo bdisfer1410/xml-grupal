@@ -10,15 +10,14 @@
             <title>Libros del Catálogo</title>
         </head>
         <body>
-            <h1>TOTAL LIBROS CATÁLOGO [<xsl:value-of select="count(/document/list/element/attribute[@name='Identificador'])"/>]</h1>
             <xsl:apply-templates/>
         </body>
     </html>
 </xsl:template>
 
-<xsl:template match="book">
+<xsl:template match="/document/list/element/attribute[@name='Identificador']">
     <p>
-        <xsl:text>Libro </xsl:text><xsl:number/>.<xsl:text> </xsl:text><xsl:value-of select="bookname"/>
+        <xsl:value-of select="."/>
     </p>
 </xsl:template>
 

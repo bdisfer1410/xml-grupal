@@ -74,12 +74,14 @@
 
         <!-- Poner la URL de Imagen -->
         <img>
-            <xsl:attribute name="src"><xsl:value-of select="normalize-space(attribute[@name='Imagen']/link/reference)"/></xsl:attribute>
+            <xsl:attribute name="src">
+                <xsl:value-of select="normalize-space(attribute[@name='Imagen']/link/reference)"/>
+            </xsl:attribute>
         </img>
         
         <div class="card-head">
-            <!-- Añadir imágen -->
-            <h2>Rio Carrión </h2>
+            <!-- Darle como título el nombre del centro -->
+            <h2><xsl:value-of select="attribute[@name='Titulo_es']/string"/></h2>
             <ul>
                 <li><a onclick="ask_call_telephone('979165973')">TEL</a></li> 
                 <li><a href="https://www.google.com/maps/@41.62820471969123, -4.747935900000001">MAP</a></li>
@@ -89,7 +91,7 @@
         <div class="card-body fg-blur"> 
             <ul>
                 <li>
-                    <h3> Descripción</h3>
+                    <h3> Descripción </h3>
                     <p>El albergue de propiedad privada, se encuentra situado en Carrión de los Condes, al
                         norte de la ciudad de Palencia a 40 km, en pleno corazón del románico, a la vera del
                         río Carrión y junto al Camino de Santiago. Capital de la Comarca, cargada de monumentos
@@ -111,7 +113,7 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>Equipamiento </h3>
+                    <h3> Equipamiento </h3>
                     <ul>
                         <li>Biblioteca</li>
                         <li>Sala de TV y vídeo</li>

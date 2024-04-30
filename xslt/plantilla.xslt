@@ -18,7 +18,7 @@
             <!-- EXTERNO -->
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend"/>
             <link rel="stylesheet" href="style.css"/>
-            <script src="script.js" defer=""></script>
+            <script src="script.js" defer=""/>
         </head>
       
         <body>
@@ -62,6 +62,8 @@
     </html>
 </xsl:template>
 
-<xsl:template match="*"/>
+<xsl:template match="/document/list/element">
+    aaaaaaaaaaa
+</xsl:template>
 
 </xsl:stylesheet>

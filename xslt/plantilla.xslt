@@ -4,6 +4,16 @@
 
 <xsl:output method="html" indent="yes"/>
 
+<!-- MARK: POR HACER, BORRAR LUEGO ESTO
+     Arreglar el XML:
+        -   Añadir Web
+        -   Añadir Teléfono
+        -   Por ver...
+
+        Otros:
+        -   Hay unos que no tienen imagen, A lo mejor ponemos una imagen de otro centro o directamente borramos el centro.
+ -->
+
 <!-- MARK: PUNTO DE ENTRADA
      Aquí se genera el HTML, su Head y Body.
      Todo es estático excepto los enlaces de Nav, y las tarjets de Main.

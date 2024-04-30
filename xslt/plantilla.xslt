@@ -83,9 +83,23 @@
             <!-- Darle como título el nombre del centro -->
             <h2><xsl:value-of select="attribute[@name='Titulo_es']/string"/></h2>
             <ul>
-                <li><a onclick="ask_call_telephone('979165973')">TEL</a></li> 
-                <li><a href="https://www.google.com/maps/@41.62820471969123, -4.747935900000001">MAP</a></li>
-                <li><a href="http://www.elcallejonalbergue.es/">WEB</a></li> 
+                <!-- Teléfono -->
+                <li><a onclick="ask_call_telephone('979165973')">
+                    <xsl:attribute name="onclick">ask_call_telephone('<xsl:value-of select="normalize-space(attribute[@name='Telefono']/String)"/>')</xsl:attribute>
+                    TEL
+                </a></li> 
+                <!-- Dirección -->
+                <li><a href="https://www.google.com/maps/@41.62820471969123, -4.747935900000001">
+                    <!-- MARK: POR HACER -->
+                    MAP
+                </a></li>
+                <!-- Página web -->
+                <li><a href="http://www.elcallejonalbergue.es/">
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="normalize-space(attribute[@name='Web']/String)"/>
+                    </xsl:attribute>
+                    WEB
+                </a></li> 
             </ul>
         </div>
         <div class="card-body fg-blur"> 

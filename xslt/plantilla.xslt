@@ -99,8 +99,16 @@
                     TEL
                 </a></li> 
                 <!-- Dirección -->
-                <li><a href="https://www.google.com/maps/@41.62820471969123, -4.747935900000001">
-                    <!-- MARK: POR HACER -->
+                <li><a>
+                    <xsl:attribute name="href">
+                        <xsl:text>https://www.google.com/maps/@</xsl:text>
+                        <!-- Extraer y separar las coordenadas de Posicion -->
+                        <xsl:variable name="coords" select="tokenize(attribute[@name='Posicion']/string, '#')"/>
+                        <xsl:value-of select="$coords[1]"/> <!-- Latitud -->
+                        <xsl:text>,</xsl:text>
+                        <xsl:value-of select="$coords[2]"/> <!-- Longitud -->
+                        <xsl:text>,15z</xsl:text>           <!-- Nivel de zoom -->
+                    </xsl:attribute>
                     MAP
                 </a></li>
                 <!-- Página web -->

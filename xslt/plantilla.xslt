@@ -122,36 +122,32 @@
         </div>
         <div class="card-body fg-blur"> 
             <ul>
+                <!-- Descripción -->
                 <li>
-                    <h3> Descripción </h3>
-                    <p>El albergue de propiedad privada, se encuentra situado en Carrión de los Condes, al
-                        norte de la ciudad de Palencia a 40 km, en pleno corazón del románico, a la vera del
-                        río Carrión y junto al Camino de Santiago. Capital de la Comarca, cargada de monumentos
-                        y de historia, es un lugar ideal para disfrutar de la naturaleza y para contemplar el románico
-                            en todo su esplendor.
-                    </p>
+                    <h3>Descripción</h3>
+                    <p><xsl:value-of select="normalize-space(attribute[@name='Descripcion_es']/text)"/></p>
                 </li>
+                <!-- Capacidad -->
                 <li>
-                    <h3> Capacidad </h3>
-                        <p>El albergue dispone de 211 plazas en Albergue y 202 en casas prefabricadas</p>
+                    <h3>Capacidad</h3>
+                    <p><xsl:value-of select="normalize-space(attribute[@name='Capacidad']/string)"/></p>
                 </li>
+                <!-- Servicios -->
                 <li>
-                    <h3>Servicios </h3>
+                    <h3>Servicios</h3>
                     <ul>
-                        <li>Alojamiento</li>
-                        <li>Internet</li>
-                        <li>Lavandería de usuarios</li>
-                        <li>Manutención</li>
+                        <xsl:for-each select="attribute[@name='Servicios']/array/string">
+                            <li><xsl:value-of select="."/></li>
+                        </xsl:for-each>
                     </ul>
                 </li>
+                <!-- Equipamiento -->
                 <li>
-                    <h3> Equipamiento </h3>
+                    <h3>Equipamiento</h3>
                     <ul>
-                        <li>Biblioteca</li>
-                        <li>Sala de TV y vídeo</li>
-                        <li>Sala de reuniones (con audiovisuales)</li>
-                        <li>Sala de usos multiples</li>
-                        <li>Salas de Estar</li>
+                        <xsl:for-each select="attribute[@name='Equipamiento']/array/string">
+                            <li><xsl:value-of select="."/></li>
+                        </xsl:for-each>
                     </ul>
                 </li>
             </ul>

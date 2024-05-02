@@ -5,11 +5,9 @@
 <xsl:output method="html" indent="yes"/>
 
 <!-- MARK: POR HACER, BORRAR LUEGO ESTO
-     Arreglar el XML:
-        -   Añadir Web
-        -   Añadir Teléfono
-        -   Por ver...
-
+        Importante:
+            Se cambió el CSS ligeramente para que los iconos de los botones TEL MAP WEB, se pongan por clases, y no por posición.
+            A la final esto es para que si un centro no tiene Web. Pues que se quite dicho botón y la web no salga rara.
         Otros:
         -   Hay unos que no tienen imagen, A lo mejor ponemos una imagen de otro centro o directamente borramos el centro.
  -->

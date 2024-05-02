@@ -93,31 +93,50 @@
             <!-- Darle como título el nombre del centro -->
             <h2><xsl:value-of select="attribute[@name='Titulo_es']/string"/></h2>
             <ul>
+                <!-- Buscar los botones -->
+                <xsl:variable name="tel" select="attribute[@name='Telefono']/array/string/text()"/>
+                <xsl:variable name="map" select="attribute[@name='Posicion']/string"/>
+                <xsl:variable name="web" select="attribute[@name='Web']/string"/>
+
                 <!-- Teléfono -->
-                <li><a onclick="ask_call_telephone('979165973')">
-                    <xsl:attribute name="onclick">ask_call_telephone('<xsl:value-of select="normalize-space(attribute[@name='Telefono']/String)"/>')</xsl:attribute>
-                    TEL
-                </a></li> 
+                <xsl:if test="count($tel) &gt; 0">
+                    <li class="tel">
+                        <a>
+                            <xsl:attribute name="onclick">ask_call_telephone('<xsl:value-of select="normalize-space($tel[1])"/>')</xsl:attribute>
+                            TEL
+                        </a>
+                    </li> 
+                </xsl:if>
+
                 <!-- Dirección -->
-                <li><a>
-                    <xsl:attribute name="href">
-                        <xsl:text>https://www.google.com/maps/@</xsl:text>
-                        <!-- Extraer y separar las coordenadas de Posicion -->
-                        <xsl:variable name="coords" select="tokenize(attribute[@name='Posicion']/string, '#')"/>
-                        <xsl:value-of select="$coords[1]"/> <!-- Latitud -->
-                        <xsl:text>,</xsl:text>
-                        <xsl:value-of select="$coords[2]"/> <!-- Longitud -->
-                        <xsl:text>,15z</xsl:text>           <!-- Nivel de zoom -->
-                    </xsl:attribute>
-                    MAP
-                </a></li>
+                <xsl:if test="count($map) &gt; 0">
+                    <li class="map">
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:text>https://www.google.com/maps/@</xsl:text>
+                                <!-- Extraer y separar las coordenadas de Posicion -->
+                                <xsl:variable name="coords" select="tokenize($map, '#')"/>
+                                <xsl:value-of select="$coords[1]"/> <!-- Latitud -->
+                                <xsl:text>,</xsl:text>
+                                <xsl:value-of select="$coords[2]"/> <!-- Longitud -->
+                                <xsl:text>,15z</xsl:text>           <!-- Nivel de zoom -->
+                            </xsl:attribute>
+                            MAP
+                        </a>
+                    </li>
+                </xsl:if>
+
                 <!-- Página web -->
-                <li><a href="http://www.elcallejonalbergue.es/">
-                    <xsl:attribute name="href">
-                        <xsl:value-of select="normalize-space(attribute[@name='Web']/String)"/>
-                    </xsl:attribute>
-                    WEB
-                </a></li> 
+                <xsl:if test="count($web) &gt; 0">
+                    <li class="web">
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="normalize-space($web)"/>
+                            </xsl:attribute>
+                            WEB
+                        </a>
+                    </li> 
+                </xsl:if>
             </ul>
         </div>
         <div class="card-body fg-blur"> 

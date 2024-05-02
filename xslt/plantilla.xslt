@@ -91,10 +91,10 @@
             <!-- Darle como título el nombre del centro -->
             <h2><xsl:value-of select="attribute[@name='Titulo_es']/string"/></h2>
             <ul>
-                <!-- Buscar los botones -->
+                <!-- Buscar los elementos -->
                 <xsl:variable name="tel" select="attribute[@name='Telefono']/array/string/text()"/>
-                <xsl:variable name="map" select="attribute[@name='Posicion']/string"/>
-                <xsl:variable name="web" select="attribute[@name='Web']/string"/>
+                <xsl:variable name="map" select="attribute[@name='Posicion']/string/text()"/>
+                <xsl:variable name="web" select="attribute[@name='Web']/string/text()"/>
 
                 <!-- Teléfono -->
                 <xsl:if test="count($tel) &gt; 0">
@@ -139,34 +139,51 @@
         </div>
         <div class="card-body fg-blur"> 
             <ul>
+                <!-- Buscar los elementos -->
+                <xsl:variable name="descripcion"  select="attribute[@name='Descripcion_es']/text"/>
+                <xsl:variable name="capacidad"    select="attribute[@name='Capacidad']/string"/>
+                <xsl:variable name="servicios"    select="attribute[@name='Servicios']/array/string"/>
+                <xsl:variable name="equipamiento" select="attribute[@name='Equipamiento']/array/string"/>
+
                 <!-- Descripción -->
-                <li>
-                    <h3>Descripción</h3>
-                    <p><xsl:value-of select="normalize-space(attribute[@name='Descripcion_es']/text)"/></p>
-                </li>
+                <xsl:if test="count($descripcion) &gt; 0">
+                    <li>
+                        <h3>Descripción</h3>
+                        <p><xsl:value-of select="normalize-space(attribute[@name='Descripcion_es']/text)"/></p>
+                    </li>
+                </xsl:if>
+
                 <!-- Capacidad -->
-                <li>
-                    <h3>Capacidad</h3>
-                    <p><xsl:value-of select="normalize-space(attribute[@name='Capacidad']/string)"/></p>
-                </li>
+                <xsl:if test="count($capacidad) &gt; 0">
+                    <li>
+                        <h3>Capacidad</h3>
+                        <p><xsl:value-of select="normalize-space(attribute[@name='Capacidad']/string)"/></p>
+                    </li>
+                </xsl:if>
+
                 <!-- Servicios -->
-                <li>
-                    <h3>Servicios</h3>
-                    <ul>
-                        <xsl:for-each select="attribute[@name='Servicios']/array/string">
-                            <li><xsl:value-of select="."/></li>
-                        </xsl:for-each>
-                    </ul>
-                </li>
+                <xsl:if test="count($servicios) &gt; 0">
+                    <li>
+                        <h3>Servicios</h3>
+                        <ul>
+                            <xsl:for-each select="attribute[@name='Servicios']/array/string">
+                                <li><xsl:value-of select="."/></li>
+                            </xsl:for-each>
+                        </ul>
+                    </li>
+                </xsl:if>
+
                 <!-- Equipamiento -->
-                <li>
-                    <h3>Equipamiento</h3>
-                    <ul>
-                        <xsl:for-each select="attribute[@name='Equipamiento']/array/string">
-                            <li><xsl:value-of select="."/></li>
-                        </xsl:for-each>
-                    </ul>
-                </li>
+                <xsl:if test="count($equipamiento) &gt; 0">
+                    <li>
+                        <h3>Equipamiento</h3>
+                        <ul>
+                            <xsl:for-each select="attribute[@name='Equipamiento']/array/string">
+                                <li><xsl:value-of select="."/></li>
+                            </xsl:for-each>
+                        </ul>
+                    </li>
+                </xsl:if>
             </ul>
         </div>
     </section>

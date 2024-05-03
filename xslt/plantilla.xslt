@@ -81,9 +81,17 @@
         </xsl:attribute>
 
         <!-- Poner la URL de Imagen -->
+        <xsl:variable name="imagen" select="attribute[@name='Imagen']/link/reference"/>
         <img>
             <xsl:attribute name="src">
-                <xsl:value-of select="normalize-space(attribute[@name='Imagen']/link/reference)"/>
+                <xsl:choose>
+                    <xsl:when test="$imagen">
+                        <xsl:value-of select="normalize-space($imagen)"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>img/placeholder/albergue.png</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:attribute>
         </img>
         
@@ -140,16 +148,16 @@
         <div class="card-body fg-blur"> 
             <ul>
                 <!-- Buscar los elementos -->
-                <xsl:variable name="descripcion"  select="attribute[@name='Descripcion_es']/text"/>
-                <xsl:variable name="capacidad"    select="attribute[@name='Capacidad']/string"/>
-                <xsl:variable name="servicios"    select="attribute[@name='Servicios']/array/string"/>
-                <xsl:variable name="equipamiento" select="attribute[@name='Equipamiento']/array/string"/>
+                <xsl:variable name="descripcion"  select="attribute[@name='Descripcion_es']/text/text()"/>
+                <xsl:variable name="capacidad"    select="attribute[@name='Capacidad']/string/text()"/>
+                <xsl:variable name="servicios"    select="attribute[@name='Servicios']/array/string/text()"/>
+                <xsl:variable name="equipamiento" select="attribute[@name='Equipamiento']/array/string/text()"/>
 
                 <!-- Descripción -->
                 <xsl:if test="count($descripcion) &gt; 0">
                     <li>
                         <h3>Descripción</h3>
-                        <p><xsl:value-of select="normalize-space(attribute[@name='Descripcion_es']/text)"/></p>
+                        <p><xsl:value-of select="normalize-space($descripcion)"/></p>
                     </li>
                 </xsl:if>
 
@@ -157,7 +165,7 @@
                 <xsl:if test="count($capacidad) &gt; 0">
                     <li>
                         <h3>Capacidad</h3>
-                        <p><xsl:value-of select="normalize-space(attribute[@name='Capacidad']/string)"/></p>
+                        <p><xsl:value-of select="normalize-space($capacidad)"/></p>
                     </li>
                 </xsl:if>
 
@@ -166,7 +174,7 @@
                     <li>
                         <h3>Servicios</h3>
                         <ul>
-                            <xsl:for-each select="attribute[@name='Servicios']/array/string">
+                            <xsl:for-each select="$servicios">
                                 <li><xsl:value-of select="."/></li>
                             </xsl:for-each>
                         </ul>
@@ -178,7 +186,7 @@
                     <li>
                         <h3>Equipamiento</h3>
                         <ul>
-                            <xsl:for-each select="attribute[@name='Equipamiento']/array/string">
+                            <xsl:for-each select="$equipamiento">
                                 <li><xsl:value-of select="."/></li>
                             </xsl:for-each>
                         </ul>

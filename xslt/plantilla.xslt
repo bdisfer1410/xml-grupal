@@ -56,6 +56,8 @@
                 <!-- FIN -->
                 <footer>
                     Diseño Web realizado para la actividad Proyecto de Transformación XML, módulo LMSGI, 1º DAM, IES FUENGIROLA 1
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1">
                 </footer>
             </div>
         </body>
